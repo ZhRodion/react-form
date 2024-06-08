@@ -1,0 +1,103 @@
+@import '/src/variables.scss';
+
+.thankYouModal {
+	position: relative;
+
+	&__overlay {
+		width: 100%;
+		max-width: 741px;
+		padding: 220px 0 288px;
+		margin: 0 auto;
+
+		@media (max-width: $breakpoint-lg) {
+			padding: 175px 0;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			max-width: 198px;
+		}
+	}
+
+	&__title {
+		padding: 0 !important;
+		font-family: inherit !important;
+		font-weight: 800 !important;
+		font-size: 77px !important;
+		line-height: 110% !important;
+		letter-spacing: -0.05em !important;
+		text-align: center !important;
+		background: linear-gradient(177deg, #e51726 0%, #d4208c 100%) !important;
+		background-clip: text !important;
+		-webkit-background-clip: text !important;
+		-webkit-text-fill-color: transparent !important;
+
+		@media (max-width: $breakpoint-md) {
+			font-size: 55px !important;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			font-size: 35px !important;
+		}
+	}
+
+	&__text {
+		margin: 20px 0 0;
+		display: block;
+		font-weight: 700;
+		font-size: 28px;
+		letter-spacing: -0.05em;
+		text-align: center;
+		color: #3a3a3a;
+
+		@media (max-width: $breakpoint-md) {
+			margin: 12px 0 0;
+			font-size: 20px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			font-size: 14px;
+		}
+	}
+
+	&__close {
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		top: 41px;
+		right: 39px;
+		transition: all 0.3s ease-in-out;
+
+		@media (max-width: $breakpoint-md) {
+			top: 21px;
+			right: 10px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			top: 8px;
+			right: 1px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		&:active {
+			opacity: 0.4;
+		}
+	}
+
+	&__cross {
+		width: 28px;
+		height: 28px;
+
+		@media (max-width: $breakpoint-md) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

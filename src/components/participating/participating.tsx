@@ -3,6 +3,7 @@ import { ParticipatingListProps } from '../../types/participating'
 import PeopleGroup from '../people-group/people-group'
 import Button, { ButtonType } from '../shared/button/button'
 import SignUpModal from '../signup-modal/signup-modal'
+import ThankYouModal from '../thank-you-modal/thank-you-modal'
 import styles from './participating.module.scss'
 
 export const PARTICIPATE_DATA: ParticipatingListProps[] = [
@@ -72,6 +73,7 @@ export default function Participating() {
 				</div>
 			</div>
 			<SignUpModal />
+			<ThankYouModal />
 		</section>
 	)
 }

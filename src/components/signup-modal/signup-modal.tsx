@@ -1,13 +1,19 @@
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
-import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { useModalStore } from '../../store/signup'
 import Button, { ButtonType } from '../shared/button/button'
 import styles from './signup-modal.module.scss'
 
+interface SignUpFormValues {
+	email: string
+	password: string
+	submit?: string
+}
+
 export default function SignUpModal() {
-	const { isOpen, closeModal } = useModalStore()
+	const { isOpen, closeModal, closeFirstOpenSecond } = useModalStore()
 
 	const validationSchema = Yup.object({
 		email: Yup.string()
@@ -17,6 +23,46 @@ export default function SignUpModal() {
 			.min(8, 'Password must be at least 8 characters')
 			.required('Password is required'),
 	})
+
+	const handleSubmit = async (
+		values: SignUpFormValues,
+		{ setSubmitting, setErrors }: FormikHelpers<SignUpFormValues>
+	) => {
+		try {
+			const response = await fetch('https://api.dating.com/identity', {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email: values.email,
+					password: values.password,
+				}),
+			})
+
+			console.log(response)
+
+			if (!response.ok) {
+				const errorData = await response.json()
+				setErrors({ submit: errorData.message || 'An error occurred' })
+			} else {
+				const responseData = await response.text()
+				if (responseData.trim() !== '') {
+					const jsonData = JSON.parse(responseData)
+					console.log('Response data:', jsonData)
+					closeFirstOpenSecond()
+				} else {
+					console.error('Empty JSON response')
+					setErrors({ submit: 'Empty JSON response' })
+				}
+			}
+		} catch (error) {
+			console.error('Error:', error)
+			setErrors({ submit: 'An error occurred' })
+		} finally {
+			setSubmitting(false)
+		}
+	}
 
 	return (
 		<Dialog
@@ -54,14 +100,10 @@ export default function SignUpModal() {
 				<Formik
 					initialValues={{ email: '', password: '' }}
 					validationSchema={validationSchema}
-					onSubmit={(values, { setSubmitting }) => {
-						console.log(JSON.stringify(values, null, 2))
-						setSubmitting(false)
-						closeModal()
-					}}
+					onSubmit={handleSubmit}
 				>
-					{({ isSubmitting }) => (
-						<Form className={styles.modalForm} noValidate>
+					{({ isSubmitting, errors }) => (
+						<Form className={styles.modalForm} method='PUT' noValidate>
 							<div className={styles.modalForm__field}>
 								<Field
 									type='email'
@@ -90,6 +132,9 @@ export default function SignUpModal() {
 									className={styles.modalForm__error}
 								/>
 							</div>
+							{errors.submit && (
+								<p className={styles.modalForm__errorServer}>{errors.submit}</p>
+							)}
 							<Button
 								className={styles.modalForm__submit}
 								type={'submit'}
