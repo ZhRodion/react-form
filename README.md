@@ -33,7 +33,7 @@ Make sure you have Node.js and pnpm installed on your machine.
 To run the project in development mode, use the following command:
 
 ```bash
-pnpm dev
+pnpm vite
 ```
 
 Open http://localhost:5173 in your browser to view the app.
