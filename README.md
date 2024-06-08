@@ -13,7 +13,7 @@ Make sure you have Node.js and pnpm installed on your machine.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/ZhRodion/react-form
    ```
 
 2. Navigate to the project directory:
@@ -48,7 +48,7 @@ pnpm build
 
 ## Preview
 
-Link(https://react-form-six-murex.vercel.app/)
+[Link](https://react-form-six-murex.vercel.app/)
 
 ## Technologies Used
 
