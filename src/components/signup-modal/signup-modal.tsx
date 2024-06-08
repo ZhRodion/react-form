@@ -5,7 +5,6 @@ import * as Yup from 'yup'
 import { useModalStore } from '../../store/signup'
 import Button, { ButtonType } from '../shared/button/button'
 import styles from './signup-modal.module.scss'
-
 interface SignUpFormValues {
 	email: string
 	password: string
@@ -102,7 +101,7 @@ export default function SignUpModal() {
 					validationSchema={validationSchema}
 					onSubmit={handleSubmit}
 				>
-					{({ isSubmitting, errors }) => (
+					{({ isSubmitting, errors, touched }) => (
 						<Form className={styles.modalForm} method='PUT' noValidate>
 							<div className={styles.modalForm__field}>
 								<Field
@@ -110,8 +109,17 @@ export default function SignUpModal() {
 									id='email'
 									name='email'
 									placeholder='Example@email.com'
-									className={styles.modalForm__input}
+									className={`${styles.modalForm__input} ${
+										errors.email && touched.email ? styles.error : ''
+									}`}
 								/>
+								{errors.email && touched.email && (
+									<img
+										src='/images/shared/error-icon.png'
+										className={styles.modalForm__errorIcon}
+										alt='Error icon'
+									/>
+								)}
 								<ErrorMessage
 									name='email'
 									component='p'
@@ -124,8 +132,19 @@ export default function SignUpModal() {
 									id='password'
 									name='password'
 									placeholder='Password'
-									className={styles.modalForm__input}
+									className={`${styles.modalForm__input} ${
+										errors.password && touched.password
+											? styles.modalForm__borderError
+											: ''
+									}`}
 								/>
+								{errors.password && touched.password && (
+									<img
+										src='/images/shared/error-icon.png'
+										className={styles.modalForm__errorIcon}
+										alt='Error icon'
+									/>
+								)}
 								<ErrorMessage
 									name='password'
 									component='p'

@@ -182,4 +182,14 @@
 			line-height: 150%;
 		}
 	}
+
+	&__errorIcon {
+		position: absolute;
+		right: 0;
+		top: 17px;
+	}
+
+	&__borderError {
+		border-color: rgba(255, 0, 0, 0.5);
+	}
 }
