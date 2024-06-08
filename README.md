@@ -19,7 +19,7 @@ Make sure you have Node.js and pnpm installed on your machine.
 2. Navigate to the project directory:
 
    ```bash
-   cd your-repository
+   cd react-form
    ```
 
 3. Install dependencies using pnpm:
