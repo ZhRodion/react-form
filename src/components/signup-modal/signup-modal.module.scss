@@ -1,0 +1,169 @@
+@import '/src/variables.scss';
+
+.signupModal {
+	position: relative;
+
+	&__overlay {
+		width: 100%;
+		max-width: 616px;
+		padding: 150px 0;
+		margin: 0 auto;
+
+		@media (max-width: $breakpoint-lg) {
+			padding: 71px 0;
+		}
+	}
+
+	&__title {
+		padding: 0 !important;
+		font-family: var(--font-family) !important;
+		font-weight: 700 !important;
+		font-size: 24px !important;
+		line-height: 117% !important;
+		letter-spacing: -0.04em !important;
+		text-align: center !important;
+		color: #3a3a3a !important;
+
+		@media (max-width: $breakpoint-md) {
+			font-size: 17px !important;
+			line-height: 141% !important;
+		}
+	}
+
+	&__close {
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		top: 41px;
+		right: 39px;
+		transition: all 0.3s ease-in-out;
+
+		@media (max-width: $breakpoint-md) {
+			top: 21px;
+			right: 10px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			top: 8px;
+			right: 1px;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		&:active {
+			opacity: 0.4;
+		}
+	}
+
+	&__cross {
+		width: 28px;
+		height: 28px;
+
+		@media (max-width: $breakpoint-md) {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.modalForm {
+	width: 100%;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	@media (max-width: $breakpoint-md) {
+		margin-top: 15px;
+		gap: 20px;
+	}
+
+	@media (max-width: $breakpoint-xs) {
+		max-width: 261px;
+		margin: 14px auto 0;
+	}
+
+	&__field {
+		height: 62px;
+		position: relative;
+
+		@media (max-width: $breakpoint-md) {
+			height: 60px;
+		}
+	}
+
+	&__input {
+		width: 100%;
+		border: 0;
+		padding: 24px 0 5px;
+		border-bottom: 1px solid rgba(58, 58, 58, 0.5);
+		text-align: center;
+
+		@media (max-width: $breakpoint-md) {
+			padding: 25px 0 3px;
+			font-size: 14px;
+			line-height: 157%;
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&::placeholder {
+			font-family: inherit;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 133%;
+			text-align: center;
+			color: #b3b3b3;
+
+			@media (max-width: $breakpoint-md) {
+				font-size: 14px;
+				line-height: 157%;
+			}
+		}
+	}
+
+	&__error {
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		bottom: -5px;
+		transform: translateX(-50%);
+		font-family: inherit;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 150%;
+		text-align: center;
+		color: #f22533;
+
+		@media (max-width: $breakpoint-md) {
+			font-size: 12px;
+			line-height: 150%;
+			bottom: -10px;
+		}
+	}
+
+	&__submit {
+		margin: 0 auto;
+		font-weight: 800;
+		font-size: 23px;
+		letter-spacing: 0.2em;
+
+		@media (max-width: $breakpoint-md) {
+			letter-spacing: 0.1em;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			max-width: 166px;
+			font-size: 12px !important;
+		}
+	}
+}

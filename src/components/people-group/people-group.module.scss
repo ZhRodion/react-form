@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.peopleGroup {
+	width: 100%;
+	max-width: 729px;
+	position: relative;
+	left: -245px;
+
+	@media (max-width: $breakpoint-xl) {
+		left: unset;
+	}
+
+	&__heart {
+		width: 100%;
+		max-width: 357px;
+		height: 357px;
+		position: absolute;
+		top: 51%;
+		left: 51%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+
+		@media (max-width: $breakpoint-md) {
+			max-width: 242px;
+			height: 242px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			max-width: 142px;
+			height: 142px;
+		}
+	}
+
+	&__peoples {
+		width: 100%;
+		max-width: 729px;
+		object-fit: contain;
+
+		@media (max-width: $breakpoint-md) {
+			max-height: 575px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			max-height: 275px;
+		}
+	}
+}

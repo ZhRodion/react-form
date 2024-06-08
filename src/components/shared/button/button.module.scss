@@ -1,0 +1,39 @@
+@import '/src/variables.scss';
+
+.signupButton {
+	width: 100%;
+	max-width: 387px;
+	border-radius: 10px;
+	padding: 25px 0;
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 23px;
+	color: #fff;
+	background: linear-gradient(187deg, #d4208c 0%, #e51726 100%);
+	font-family: var(--font-family);
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+
+	@media (max-width: $breakpoint-md) {
+		max-width: 266px;
+		padding: 17px 0;
+		border-radius: 5px;
+		font-size: 17px;
+	}
+
+	@media (max-width: $breakpoint-xs) {
+		// max-width: 166px;
+		font-size: 13px;
+		padding: 15px 0;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background: linear-gradient(190deg, #d4208c 20%, #e51726 90%);
+		}
+	}
+
+	&:active {
+		opacity: 0.4;
+	}
+}

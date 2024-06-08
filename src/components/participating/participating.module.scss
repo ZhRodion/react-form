@@ -1,0 +1,121 @@
+@import '/src/variables.scss';
+
+.participating {
+	padding: 203px 0 187px;
+
+	@media (max-width: $breakpoint-lg) {
+		padding: 104px 0;
+	}
+
+	@media (max-width: $breakpoint-sm) {
+		padding: 24px 0 22px;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media (max-width: $breakpoint-xl) {
+			gap: 20px;
+		}
+
+		@media (max-width: $breakpoint-lg) {
+			flex-direction: column;
+		}
+
+		@media (max-width: $breakpoint-md) {
+			gap: 17px;
+		}
+	}
+}
+
+.participatingContent {
+	width: 100%;
+	max-width: 483px;
+	margin-left: auto;
+
+	@media (max-width: $breakpoint-lg) {
+		margin-left: unset;
+	}
+
+	&__title {
+		font-weight: 800;
+		font-size: 77px;
+		line-height: 110%;
+		letter-spacing: -0.05em;
+		background: linear-gradient(177deg, #e51726 0%, #d4208c 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-align: left;
+
+		@media (max-width: $breakpoint-lg) {
+			font-size: 55px;
+		}
+
+		@media (max-width: $breakpoint-sm) {
+			font-size: 35px;
+		}
+	}
+}
+
+.participatingList {
+	margin-top: 51px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+
+	@media (max-width: $breakpoint-md) {
+		margin-top: 19px;
+		gap: 18px;
+	}
+
+	&__item {
+		width: 100%;
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		justify-content: flex-start;
+
+		@media (max-width: $breakpoint-md) {
+			gap: 12px;
+		}
+	}
+
+	&__digit {
+		font-weight: 800;
+		font-size: 55px;
+		letter-spacing: -0.05em;
+		background: linear-gradient(177deg, #e51726 0%, #d4208c 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		@media (max-width: $breakpoint-md) {
+			font-size: 43px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			font-size: 33px;
+		}
+	}
+
+	&__textContent {
+		font-weight: 600;
+		font-size: 38px;
+		line-height: 198%;
+		letter-spacing: -0.05em;
+		color: #3a3a3a;
+
+		@media (max-width: $breakpoint-md) {
+			font-size: 28px;
+		}
+
+		@media (max-width: $breakpoint-xs) {
+			font-size: 18px;
+			letter-spacing: -0.03em;
+		}
+	}
+}
