@@ -1,15 +1,11 @@
-import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { useModalStore } from '../../store/signup'
+import { SignUpFormValues } from '../../types/signup-form'
 import Button, { ButtonType } from '../shared/button/button'
+import Modal from '../shared/modal/modal'
 import styles from './signup-modal.module.scss'
-interface SignUpFormValues {
-	email: string
-	password: string
-	submit?: string
-}
 
 export default function SignUpModal() {
 	const { isOpen, closeModal, closeFirstOpenSecond } = useModalStore()
@@ -64,33 +60,7 @@ export default function SignUpModal() {
 	}
 
 	return (
-		<Dialog
-			className={styles.signupModal}
-			open={isOpen}
-			onClose={closeModal}
-			sx={{
-				'& .MuiModal-backdrop': {
-					backdropFilter: 'blur(15px)',
-					background: 'rgba(255, 255, 255, 0.8)',
-				},
-				'& .MuiDialog-paper': {
-					width: '100%',
-					maxWidth: '1179px',
-					padding: '0 45px',
-					boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
-					borderRadius: '50px',
-
-					'@media (max-width: 992px)': {
-						borderRadius: '20px',
-					},
-
-					'@media (max-width: 600px)': {
-						padding: '0 5px',
-						margin: '21px',
-					},
-				},
-			}}
-		>
+		<Modal onClose={closeModal} className={styles.signupModal} open={isOpen}>
 			<div className={styles.signupModal__overlay}>
 				<DialogTitle className={styles.signupModal__title}>
 					To register, enter the mail to which our news is sent and set your
@@ -110,7 +80,9 @@ export default function SignUpModal() {
 									name='email'
 									placeholder='Example@email.com'
 									className={`${styles.modalForm__input} ${
-										errors.email && touched.email ? styles.error : ''
+										errors.email && touched.email
+											? styles.modalForm__borderError
+											: ''
 									}`}
 								/>
 								{errors.email && touched.email && (
@@ -176,6 +148,6 @@ export default function SignUpModal() {
 					alt='Close modal button icon'
 				/>
 			</button>
-		</Dialog>
+		</Modal>
 	)
 }
