@@ -1,30 +1,69 @@
-# React + TypeScript + Vite
+# React Form with Yup, Formik, Zustand, TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases a React form implementation using Yup for validation, Formik for form management, Zustand for state management, and TypeScript for type safety.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## Expanding the ESLint configuration
+Make sure you have Node.js and pnpm installed on your machine.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Installation
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+   ```bash
+   git clone https://github.com/ZhRodion/react-form
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd react-form
+   ```
+
+3. Install dependencies using pnpm:
+
+   ```bash
+   pnpm install
+   ```
+
+## Running the Project
+
+To run the project in development mode, use the following command:
+
+```bash
+pnpm vite
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Open http://localhost:5173 in your browser to view the app.
+
+## Building for Production
+
+To build the project for production, use:
+
+```bash
+pnpm build
+```
+
+## Preview
+
+[Link](https://react-form-six-murex.vercel.app/)
+
+## Technologies Used
+
+- React
+- Yup
+- Formik
+- Zustand
+- TypeScript
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## Acknowledgments
+
+- [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+- [GitHub Actions](https://github.com/features/actions) - Automated workflows
